@@ -16,7 +16,7 @@ app.use(cors());
 const EmpData = require("./model/EmpData");
 const userModel=require("./model/users");
 const path = require("path");
- app.use(express.static(path.join(__dirname + "/build")));
+ app.use(express.static(path.join(__dirname + "./build")));
 // Task2: create mongoDB connection
 
 mongoose.connect(
@@ -165,7 +165,7 @@ app.put("/api/employeelist", (req, res) => {
 });
 //! dont delete this code. it connects the front end file.
 app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname + '/build/index.html'));
+  res.sendFile(path.resolve(__dirname, "./build", "index.html"));
 });
 
 // app.listen(3004, () => {
