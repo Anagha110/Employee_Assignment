@@ -17,7 +17,7 @@ const Create = () => {
     const sendDataToAPI=()=>{
 
       // e.preventDefault();
-axios.post("http://localhost:3004/api/employeelist",
+axios.post("/api/employeelist",
 {name, location, position, salary}
 ).then(()=>{
   navigate("/Read");

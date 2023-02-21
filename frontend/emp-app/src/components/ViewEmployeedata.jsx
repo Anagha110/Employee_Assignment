@@ -9,7 +9,7 @@ import Navbar from './Navbar';
 const ViewEmployeedata = () => {
     const [APIData, setAPIData] = useState([]);
     useEffect(() => {
-      axios.get(`http://localhost:3004/api/employeelist`)
+      axios.get(`/api/employeelist`)
               .then((response) => {
                 console.log(response.data)
                   setAPIData(response.data);

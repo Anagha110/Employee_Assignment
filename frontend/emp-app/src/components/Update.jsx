@@ -18,7 +18,7 @@ const Update = () => {
     const [ID,setID]=useState(null);
     const updateAPIData = () => {
 
-      axios.put(`http://localhost:3004/api/employeelist`, {
+      axios.put(`/api/employeelist`, {
         name, location, position, salary}
 ).then(()=>{
   navigate("/Read",{ replace: true });

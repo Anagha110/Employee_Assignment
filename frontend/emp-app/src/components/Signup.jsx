@@ -21,7 +21,7 @@ const userAuthentication = ()=>{
 
   }
     // e.preventDefault();
-axios.post(`http://localhost:3004/api/signup/`,
+axios.post(`/api/signup/`,
 {name,email,password}
 ).then(()=>{
 navigate("/");

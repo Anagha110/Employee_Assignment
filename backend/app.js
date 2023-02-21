@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 
 
 const app = new express();
-
+const port = process.env.PORT || 3004;
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
 app.use(cors());
@@ -15,8 +15,8 @@ app.use(cors());
 //import model file
 const EmpData = require("./model/EmpData");
 const userModel=require("./model/users");
-// const path = require("path");
-// app.use(express.static(path.join(__dirname + "/build")));
+const path = require("path");
+ app.use(express.static(path.join(__dirname + "/build")));
 // Task2: create mongoDB connection
 
 mongoose.connect(
@@ -164,10 +164,13 @@ app.put("/api/employeelist", (req, res) => {
   });
 });
 //! dont delete this code. it connects the front end file.
-// app.get('/*', function (req, res) {
-//   res.sendFile(path.join(__dirname + '/build/index.html'));
-// });
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname + '/build/index.html'));
+});
 
-app.listen(3004, () => {
-  console.log("server listening to port 3004");
+// app.listen(3004, () => {
+//   console.log("server listening to port 3004");
+// });
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
 });
